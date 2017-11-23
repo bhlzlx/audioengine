@@ -1,0 +1,14 @@
+{
+    "player" : {
+		"boss" : {
+			"name" : "phantom",
+			"position" : {
+				"x" : 256,
+				"y" : 128,
+				"z" : 64
+			},
+			"weight": 140,
+			"alive" : true
+		}
+    }
+}

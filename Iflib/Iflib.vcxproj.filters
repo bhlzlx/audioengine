@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="openal">
+      <UniqueIdentifier>{7f32ad60-4003-4085-9756-1d89c283ee05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mp3">
+      <UniqueIdentifier>{4a3c834a-aa75-491c-ba56-984b0afdecee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{5b0d0085-3dd7-47bb-8516-df6918922573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cjson">
+      <UniqueIdentifier>{295e3314-4e76-4176-94f9-a4e0be5048fd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\3rdInc\iflib\Archive.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\openal\aldef.h">
+      <Filter>openal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\openal\audioStream.h">
+      <Filter>openal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\openal\buffer.h">
+      <Filter>openal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\openal\device.h">
+      <Filter>openal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\openal\source.h">
+      <Filter>openal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\openal\streamAudioSource.h">
+      <Filter>openal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\openal\FFTIndicator.h">
+      <Filter>openal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\openal\iflibLameUtil.h">
+      <Filter>openal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\utils\JsonBlob.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\cjson\cJSON_Utils.h">
+      <Filter>cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\cjson\cJSON.h">
+      <Filter>cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\utils\JsonStructTemplate.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\utils\JsonStructTemplateMacro.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\utils\JsonStructUserDef.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdInc\iflib\utils\JsonStructDecl.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\3rdInc\iflib\Archive.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\iflib\openal\buffer.cpp">
+      <Filter>openal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\iflib\openal\device.cpp">
+      <Filter>openal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\iflib\openal\oggAudioStream.cpp">
+      <Filter>openal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\iflib\openal\pcmAudioStream.cpp">
+      <Filter>openal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\iflib\openal\source.cpp">
+      <Filter>openal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\iflib\openal\streamAudioSource.cpp">
+      <Filter>openal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\iflib\openal\FFTIndicator.cpp">
+      <Filter>openal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\iflib\openal\mp3AudioStream.cpp">
+      <Filter>openal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\iflib\utils\JsonBlob.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\cjson\cJSON_Utils.c">
+      <Filter>cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\cjson\cJSON.c">
+      <Filter>cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdInc\iflib\utils\JsonStructImp.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
