@@ -20,7 +20,7 @@ fftw_plan fftwPlan;
 const int FFT_SAMPLE_NUM = 2048;
 
 //#define TEST_OGG
-#define TEST_MP3
+//#define TEST_MP3
 //#define TEST_WAV
 
 OpenALWave::OpenALWave(QWidget *parent)
@@ -33,15 +33,18 @@ OpenALWave::OpenALWave(QWidget *parent)
 	ui.centralwidget->setLayout(mainLayout);
 
 	IBlob * cfgBlob = iflib::GetDefArchive()->Open("configure.json");
+
+	AudioPlayer ap;
 	if (cfgBlob)
 	{
 		jsonBlob = iflib::JsonBlob::FromFile(cfgBlob);
-		auto item = jsonBlob->FindItem("player/boss");
+		auto item = jsonBlob->FindItem("audioplayer");
 		if (item)
 		{
-			PlayerData pd;
-			if (pd.ParseJson(item->item))
-				printf("%s", pd.name.c_str());
+			if (ap.ParseJson(item->item))
+				printf("%s", ap.title.c_str());
+			setWindowTitle(QString( ap.title.c_str()));
+			iflib::GetDefArchive()->Init(ap.path.c_str());
 		}
 		cfgBlob->Release();
 	}
@@ -73,6 +76,8 @@ OpenALWave::OpenALWave(QWidget *parent)
 	auto blob = arch->Open("李孝利 - 10 MINUTES.mp3", iflib::IBlob::eStreamBlob);
 	//auto blob = arch->Open("Bandari - Annie's Wonderland.mp3", iflib::IBlob::eStreamBlob);	
 #endif
+
+	auto blob = arch->Open(ap.op.c_str(), iflib::IBlob::eStreamBlob);
 	source = new StreamAudioSource();
 	if (blob)
 	{
@@ -85,19 +90,19 @@ OpenALWave::OpenALWave(QWidget *parent)
 #ifdef TEST_MP3
 		audioStream = IAudioStream::FromMP3(blob);
 #endif
-		audioStream->SetTitle("李孝利 - 10 MINUTES.mp3");
-		ui.lbMusicTitle->setText(u8"李孝利 - 10 MINUTES");
+		audioStream = IAudioStream::FromMP3(blob);
+		//audioStream->SetTitle(ap.op.c_str());
+		ui.lbMusicTitle->setText(ap.op.c_str());
 		source->Init(audioStream);
 		source->Play();
 		fftAnylizer.Init(source, FFT_SAMPLE_NUM);
+		QTimer::singleShot(200, this, SLOT(tickAudio()));
+		QTimer::singleShot(100, this, SLOT(tickWave()));
 	}
 	else
 	{
 		audioStream = nullptr;
 	}
-	QTimer::singleShot(200, this, SLOT(tickAudio()));
-	QTimer::singleShot(100, this, SLOT(tickWave()));
-
 	timelinePressed = false;
 	timelineMoved = false;
 }
