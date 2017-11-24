@@ -33,13 +33,14 @@ cJSON * item = nullptr;
 #define DEF_JSON_ITEM_BOOL(NAME) item = cJSON_GetObjectItem( _json, #NAME ); if( !item ) return false; NAME = (item->type == cJSON_True);
 #define DEF_JSON_ITEM_NUMBER(NAME) item = cJSON_GetObjectItem( _json, #NAME ); if( !item ) return false; NAME = item->valuedouble;
 #define DEF_JSON_ITEM_STRING(NAME) item = cJSON_GetObjectItem( _json, #NAME ); if( !item ) return false; NAME = item->valuestring;
+
 #define DEF_JSON_ITEM_VECTOR(TYPE, NAME )\
 item = cJSON_GetObjectItem( _json, #NAME );\
-if( !item )\
+if(!item )\
 	return false;\
-if( !cJSON_IsArray(item)) retrun false; \
-int arrSz = cJSON_GetArraySize( item ); \
-for( int i = 0; i< arrSz); ++i ){\
+if( !cJSON_IsArray(item)) return false;\
+int arrSz = cJSON_GetArraySize( item );\
+for( int i = 0; i< arrSz; ++i ){\
 	cJSON * arrItem = cJSON_GetArrayItem(item, i);\
 	TYPE arrEle;\
 	if( !arrEle.ParseJson(arrItem))\
