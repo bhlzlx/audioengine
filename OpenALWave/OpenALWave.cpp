@@ -12,6 +12,7 @@
 
 #include "iflib/utils/JsonBlob.h"
 #include "iflib/utils/JsonStructDecl.h"
+#include "iflib/string/uistring.h"
 
 iflib::JsonBlob::JsonBlobPtr jsonBlob;
 
@@ -41,10 +42,19 @@ OpenALWave::OpenALWave(QWidget *parent)
 		auto item = jsonBlob->FindItem("audioplayer");
 		if (item)
 		{
-			if (ap.ParseJson(item->item))
+			const char * error = nullptr;
+			if (ap.Init(item->item, &error))
 				printf("%s", ap.title.c_str());
 			setWindowTitle(QString( ap.title.c_str()));
 			iflib::GetDefArchive()->Init(ap.path.c_str());
+		}
+		item = jsonBlob->FindItem("glossary");
+		if (item)
+		{
+			const char * error = nullptr;
+			GLOSSARY glossary;
+			int ret = glossary.Init(item->item, &error);
+			printf("%d", ret);
 		}
 		cfgBlob->Release();
 	}
@@ -76,8 +86,11 @@ OpenALWave::OpenALWave(QWidget *parent)
 	auto blob = arch->Open("ÀîÐ¢Àû - 10 MINUTES.mp3", iflib::IBlob::eStreamBlob);
 	//auto blob = arch->Open("Bandari - Annie's Wonderland.mp3", iflib::IBlob::eStreamBlob);	
 #endif
-
-	auto blob = arch->Open(ap.op.c_str(), iflib::IBlob::eStreamBlob);
+	QString utf8 = ap.op.c_str();
+	std::u16string ucsString = utf8.toStdU16String();
+	char * gbk = nullptr;
+	uint32_t nConv = uiv2::ucsle2gbk((const char *)ucsString.c_str(), ucsString.length() * 2, &gbk);
+	auto blob = arch->Open(gbk, iflib::IBlob::eStreamBlob);
 	source = new StreamAudioSource();
 	if (blob)
 	{
@@ -277,7 +290,10 @@ void OpenALWave::dropEvent(QDropEvent *event)
 			source->Pause();
 			if (audioStream)
 				audioStream->Release();
-			IBlob * blob = iflib::GetDefArchive()->WOpen((const wchar_t*)file_name.toStdU16String().c_str(),iflib::IBlob::eStreamBlob);
+			std::u16string ucsString = file_name.toStdU16String();
+			char * gbk = nullptr;
+			uint32_t nConv = uiv2::ucsle2gbk( (const char *)ucsString.c_str(), ucsString.length() * 2, &gbk);
+			IBlob * blob = iflib::GetDefArchive()->Open(gbk,iflib::IBlob::eStreamBlob);
 			audioStream = iflib::openal::IAudioStream::FromOGG(blob);
 			source->Init(audioStream);
 			fftAnylizer.Init(source, FFT_SAMPLE_NUM);
@@ -288,7 +304,11 @@ void OpenALWave::dropEvent(QDropEvent *event)
 			source->Pause();
 			if (audioStream)
 				audioStream->Release();
-			IBlob * blob = iflib::GetDefArchive()->WOpen((const wchar_t*)file_name.toStdU16String().c_str(), iflib::IBlob::eStreamBlob);
+			std::u16string ucsString = file_name.toStdU16String();
+			char * gbk = nullptr;
+			uint32_t nConv = uiv2::ucsle2gbk((const char *)ucsString.c_str(), ucsString.length() * 2, &gbk);
+			IBlob * blob = iflib::GetDefArchive()->Open(gbk, iflib::IBlob::eStreamBlob);
+		//	IBlob * blob = iflib::GetDefArchive()->WOpen((const wchar_t*)file_name.toStdU16String().c_str(), iflib::IBlob::eStreamBlob);
 			audioStream = iflib::openal::IAudioStream::FromMP3(blob);
 			source->Init(audioStream);
 			fftAnylizer.Init(source, FFT_SAMPLE_NUM);

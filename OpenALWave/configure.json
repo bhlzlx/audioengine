@@ -1,8 +1,57 @@
 {
-    "audioplayer" : {
-		"volume" : 100,
-		"title" : "Audio Player - bhlzlx",
-		"path" : "E:/CloudMusic/",
-		"op" : "Sound Horizon - √¿§∑§≠§‚§Œ.mp3"
-	}
+    "audioplayer":{
+        "volume":100,
+        "title":"Audio Player - bhlzlx",
+        "path":"F:/CloudMusic/",
+        "op":"Sound Horizon - Áæé„Åó„Åç„ÇÇ„ÅÆ.mp3"
+    },
+    "glossary":{
+		"title":"example glossary",
+		"GlossDiv":{
+			"title":"S",
+			"GlossList":[{
+					"ID":"SGML",
+					"SortAs":"SGML",
+					"GlossTerm":"Standard Generalized Markup Language",
+					"Acronym":"SGML",
+					"Abbrev":"ISO 8879:1986",
+					"GlossDef":{
+						"para":"A meta-markup language, used to create markup languages such as DocBook.",
+						"GlossSeeAlso":[
+							"GML",
+							"XML"
+						]
+					},
+					"GlossSee":"markup"
+				},{
+					"ID":"SGML",
+					"SortAs":"SGML",
+					"GlossTerm":"Standard Generalized Markup Language",
+					"Acronym":"SGML",
+					"Abbrev":"ISO 8879:1986",
+					"GlossDef":{
+						"para":"A meta-markup language, used to create markup languages such as DocBook.",
+						"GlossSeeAlso":[
+							"GML",
+							"XML"
+						]
+					},
+					"GlossSee":"markup"
+				},{
+					"ID":"SGML",
+					"SortAs":"SGML",
+					"GlossTerm":"Standard Generalized Markup Language",
+					"Acronym":"SGML",
+					"Abbrev":"ISO 8879:1986",
+					"GlossDef":{
+						"para":"A meta-markup language, used to create markup languages such as DocBook.",
+						"GlossSeeAlso":[
+							"GML",
+							"XML"
+						]
+					},
+					"GlossSee":"markup"
+				}]
+		}
+    }
 }

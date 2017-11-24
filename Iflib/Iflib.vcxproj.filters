@@ -25,6 +25,9 @@
     <Filter Include="cjson">
       <UniqueIdentifier>{295e3314-4e76-4176-94f9-a4e0be5048fd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="string">
+      <UniqueIdentifier>{a3bdad4b-62db-4e07-ae39-59f5b1a3d489}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -72,11 +75,11 @@
     <ClInclude Include="..\3rdInc\iflib\utils\JsonStructTemplateMacro.h">
       <Filter>utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdInc\iflib\utils\JsonStructUserDef.h">
-      <Filter>utils</Filter>
-    </ClInclude>
     <ClInclude Include="..\3rdInc\iflib\utils\JsonStructDecl.h">
       <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Administrator\Documents\Visual Studio 2015\Projects\OpenAL++\3rdInc\iflib\string\uistring.h">
+      <Filter>string</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +121,9 @@
     </ClCompile>
     <ClCompile Include="..\3rdInc\iflib\utils\JsonStructImp.cpp">
       <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Administrator\Documents\Visual Studio 2015\Projects\OpenAL++\3rdInc\iflib\string\uistring.cpp">
+      <Filter>string</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
