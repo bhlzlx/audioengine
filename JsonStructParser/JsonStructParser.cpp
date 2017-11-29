@@ -18,18 +18,18 @@ struct Vector
 	float y;
 	float z;
 	// add parser
-	IFLIB_ADD_JSON_PARSE(IFDJI(x) IFDJI(y) IFDJI(z))
+	XJSON_PARSE(JITEM(x) JITEM(y) JITEM(z))
 };	
 
 
-struct UserDataA
+struct Player
 {
 	double age;
 	std::string name;
 	bool alive;
 	std::vector<Vector> pos;
 	// add parser
-	IFLIB_ADD_JSON_PARSE(IFDJI(age) IFDJI(name) IFDJI(alive) IFDJI(pos))
+	XJSON_PARSE(JITEM(age) JITEM(name) JITEM(alive) JITEM(pos))
 };
 
 int main()
@@ -38,7 +38,7 @@ int main()
 	iflib::IBlob * blob = arch->Open("data.json");
 	auto json = iflib::JsonBlob::FromFile(blob);
 	auto structJson = json->FindItem("player");
-	UserDataA uda;
-	UserDataA::Parser::Parse(uda, structJson->item);
+	Player uda;
+	Player::Parser::Parse(uda, structJson->item);
     return 0; 
 }

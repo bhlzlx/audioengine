@@ -157,7 +157,7 @@ static bool Parse(T& _value, cJSON* _json)\
 	if (!_json) return false;\
 	cJSON* item = nullptr;\
 
-#define IFDJI( ITEM )\
+#define JITEM( ITEM )\
 item = cJSON_GetObjectItem(_json, #ITEM );\
 if (IsBasicType(_value.ITEM))\
 {\
@@ -168,14 +168,13 @@ else\
 	ParseObject(_value.ITEM, item);\
 }
 
-
 #define DEFINE_PARSER_TAIL\
 	return true;\
 		}\
 		BASICPARSECODE\
 	};
 
-#define IFLIB_ADD_JSON_PARSE( ITEMS ) DEFINE_PARSER_HEADER ITEMS DEFINE_PARSER_TAIL
+#define XJSON_PARSE( ITEMS ) DEFINE_PARSER_HEADER ITEMS DEFINE_PARSER_TAIL
 #define DEF_PARSE_ITEM( ITEM )
 
 
