@@ -1,0 +1,180 @@
+struct Vector
+{
+	float x;
+	float y;
+	float z;
+
+	DEFINE_PARSER_HEADER
+	DEFINEITEM(x)
+	DEFINEITEM(y)
+	DEFINEITEM(z)
+	DEFINE_PARSER_TAIL
+};
+	/*struct Parser
+	{
+		template< class T>
+		static bool ParseObject(T& _value, cJSON* _json)
+		{
+			if (!_json) return false;
+			_value.Parse(_value, _json);
+		}
+
+		template< class T >
+		static bool ParseObject(std::vector<T>& _value, cJSON* _json)
+		{
+			if (!_json) return false;
+
+			int nItem = cJSON_GetArraySize();
+			for (int i = 0; i < nItem; ++i)
+			{
+				auto item = cJSON_GetArrayItem(_json, i);
+				T value;
+				value.Parse(value, _json);
+				_value.push_back(value);
+			}
+			return true;
+		}
+
+		template< class T>
+		static bool ParseBasicType(T& _value, cJSON* _json)
+		{
+			return false;
+		}
+
+		template< class T >
+		static bool Parse(T& _value, cJSON* _json)
+		{
+			if (!_json) return false;
+			cJSON* item = nullptr;
+			// item 
+			item = cJSON_GetObjectItem(_json, "x");
+			if (IsBasicType(_value.x))
+			{
+				ParseBasicType(_value.x, item);
+			}
+			else
+			{
+				ParseObject(_value.x, item);
+			}
+
+			item = cJSON_GetObjectItem(_json, "y");
+			if (IsBasicType(_value.y))
+			{
+				ParseBasicType(_value.y, item);
+			}
+			else
+			{
+				ParseObject(_value.y, item);
+			}
+
+			item = cJSON_GetObjectItem(_json, "z");
+			if (IsBasicType(_value.z))
+			{
+				ParseBasicType(_value.z, item);
+			}
+			else
+			{
+				ParseObject(_value.z, item);
+			}
+
+			return true;
+		}
+		BASICPARSECODE
+	};*/
+//};
+
+
+struct UserDataA
+{
+	double age;
+	std::string name;
+	bool alive;
+	std::vector<Vector> pos;
+	DEFINE_PARSER_HEADER
+		DEFINEITEM(age)
+		DEFINEITEM(name)
+		DEFINEITEM(alive)
+		DEFINEITEM(pos)
+	DEFINE_PARSER_TAIL
+};/*
+	struct Parser
+	{
+		template< class T>
+		static bool ParseObject(T& _value, cJSON* _json)
+		{
+			if (!_json) return false;
+			T::Parser::Parse(_value, _json);
+		}
+
+		template< class T >
+		static bool ParseObject(std::vector<T>& _value, cJSON* _json)
+		{
+			if (!_json) return false;
+
+			int nItem = cJSON_GetArraySize(_json);
+			for (int i = 0; i < nItem; ++i)
+			{
+				auto item = cJSON_GetArrayItem(_json, i);
+				T value;
+				T::Parser::Parse(value, item);
+				_value.push_back(value);
+			}
+			return true;
+		}
+
+		template< class T>
+		static bool ParseBasicType(T& _value, cJSON* _json)
+		{
+			return false;
+		}
+
+		template< class T >
+		static bool Parse(T& _value, cJSON* _json)
+		{
+			if (!_json) return false;
+			cJSON* item = nullptr;
+			// item 
+			item = cJSON_GetObjectItem(_json, "age");
+			if (IsBasicType(_value.age))
+			{
+				ParseBasicType(_value.age, item);
+			}
+			else
+			{
+				ParseObject(_value.age, item);
+			}
+
+			item = cJSON_GetObjectItem(_json, "alive");
+			if (IsBasicType(_value.alive))
+			{
+				ParseBasicType(_value.alive, item);
+			}
+			else
+			{
+				ParseObject(_value.alive, item);
+			}
+
+			item = cJSON_GetObjectItem(_json, "name");
+			if (IsBasicType(_value.name))
+			{
+				ParseBasicType(_value.name, item);
+			}
+			else
+			{
+				ParseObject(_value.name, item);
+			}
+
+			item = cJSON_GetObjectItem(_json, "pos");
+			if (IsBasicType(_value.pos))
+			{
+				ParseBasicType(_value.pos, item);
+			}
+			else
+			{
+				ParseObject(_value.pos, item);
+			}
+			return true;
+		}
+		BASICPARSECODE
+	};
+};*/

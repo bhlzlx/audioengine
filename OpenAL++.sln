@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Iflib", "Iflib\Iflib.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JsonStructTest", "JsonStructTest\JsonStructTest.vcxproj", "{35000DD5-388D-4B39-9969-AD3218019780}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JsonStructParser", "JsonStructParser\JsonStructParser.vcxproj", "{3744C918-57A7-453F-AA41-4CF8F0B4B05B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -49,6 +51,14 @@ Global
 		{35000DD5-388D-4B39-9969-AD3218019780}.Release|x64.Build.0 = Release|x64
 		{35000DD5-388D-4B39-9969-AD3218019780}.Release|x86.ActiveCfg = Release|Win32
 		{35000DD5-388D-4B39-9969-AD3218019780}.Release|x86.Build.0 = Release|Win32
+		{3744C918-57A7-453F-AA41-4CF8F0B4B05B}.Debug|x64.ActiveCfg = Debug|x64
+		{3744C918-57A7-453F-AA41-4CF8F0B4B05B}.Debug|x64.Build.0 = Debug|x64
+		{3744C918-57A7-453F-AA41-4CF8F0B4B05B}.Debug|x86.ActiveCfg = Debug|Win32
+		{3744C918-57A7-453F-AA41-4CF8F0B4B05B}.Debug|x86.Build.0 = Debug|Win32
+		{3744C918-57A7-453F-AA41-4CF8F0B4B05B}.Release|x64.ActiveCfg = Release|x64
+		{3744C918-57A7-453F-AA41-4CF8F0B4B05B}.Release|x64.Build.0 = Release|x64
+		{3744C918-57A7-453F-AA41-4CF8F0B4B05B}.Release|x86.ActiveCfg = Release|Win32
+		{3744C918-57A7-453F-AA41-4CF8F0B4B05B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
