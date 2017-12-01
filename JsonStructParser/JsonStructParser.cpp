@@ -12,24 +12,19 @@
 
 #include "JsonStructParser.h"
 
-struct Vector
-{
-	float x;
-	float y;
-	float z;
-	// add parser
-	XJSON_PARSE(JITEM(x) JITEM(y) JITEM(z))
-};	
+struct Vector {
+	double x;
+	double y;
+	double z;
+	XJSON(x, y, z)
+};
 
-
-struct Player
-{
+struct Player {
 	double age;
 	std::string name;
 	bool alive;
 	std::vector<Vector> pos;
-	// add parser
-	XJSON_PARSE(JITEM(age) JITEM(name) JITEM(alive) JITEM(pos))
+	XJSON(age, name, alive, pos)
 };
 
 int main()
@@ -39,6 +34,17 @@ int main()
 	auto json = iflib::JsonBlob::FromFile(blob);
 	auto structJson = json->FindItem("player");
 	Player uda;
-	Player::Parser::Parse(uda, structJson->item);
+	Player::X::Parse(uda, structJson->item);
+
+	cJSON * savedRoot = cJSON_CreateObject();
+	cJSON * savedPlayer = cJSON_CreateObject();
+	cJSON_AddItemToObject(savedRoot, "player", savedPlayer);
+
+	Player::X::Save(uda, savedPlayer );
+
+	const char * str = cJSON_Print(savedRoot);
+
+	printf("%s", str);
+
     return 0; 
 }
